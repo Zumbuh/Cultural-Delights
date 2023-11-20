@@ -13,6 +13,7 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -88,7 +89,7 @@ public class FruitingLeaves extends LeavesBlock implements BonemealableBlock {
         state.add(DISTANCE, PERSISTENT, WATERLOGGED);
     }
 
-    public boolean isValidBonemealTarget(BlockGetter p_57260_, BlockPos p_57261_, BlockState p_57262_, boolean p_57263_) {
+    public boolean isValidBonemealTarget(LevelReader p_57260_, BlockPos p_57261_, BlockState p_57262_, boolean p_57263_) {
         return p_57262_.getValue(AGE) < MAX_AGE;
     }
 

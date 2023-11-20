@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.ncpbails.culturaldelights.block.ModBlocks;
 import com.ncpbails.culturaldelights.block.entity.ModBlockEntities;
 import com.ncpbails.culturaldelights.item.ModItems;
+import com.ncpbails.culturaldelights.misc.CDCreativeTab;
 import com.ncpbails.culturaldelights.world.feature.ModConfiguredFeatures;
 import com.ncpbails.culturaldelights.world.feature.ModPlacedFeatures;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -38,17 +39,19 @@ public class CulturalDelights
 
     // Directly reference a slf4j logger
     private static final Logger LOGGER = LogUtils.getLogger();
+	
+	public static final CDCreativeTab CULTURAL_CREATIVE_TAB = new CDCreativeTab();
 
 
     public CulturalDelights()
     {
         // Register the setup method for modloading
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+		IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
-        ModConfiguredFeatures.register(eventBus);
-        ModPlacedFeatures.register(eventBus);
+		CDCreativeTab.registerCreativeTab(modEventBus);
 
 
         eventBus.addListener(this::setup);

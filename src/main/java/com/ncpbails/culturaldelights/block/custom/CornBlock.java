@@ -13,6 +13,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
@@ -129,13 +130,13 @@ public class CornBlock extends BushBlock implements BonemealableBlock {
         }
     }
 
-    public boolean isValidBonemealTarget(BlockGetter level, BlockPos pos, BlockState state, boolean isClient) {
+    @Override
+    public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state, boolean isClient) {
         BlockState upperState = level.getBlockState(pos.above());
         if (upperState.getBlock() instanceof CornUpperBlock) {
             return !((CornUpperBlock)upperState.getBlock()).isMaxAge(upperState);
-        } else {
-            return true;
         }
+        return true;
     }
 
     public boolean isBonemealSuccess(Level level, RandomSource rand, BlockPos pos, BlockState state) {

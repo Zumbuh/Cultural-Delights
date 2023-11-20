@@ -17,8 +17,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Material;
-import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.ToolAction;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -36,18 +34,18 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> WILD_CUCUMBERS = registerBlock("wild_cucumbers",
             () -> new WildCropBlock(MobEffects.FIRE_RESISTANCE, 6,
-                    BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)), FarmersDelight.CREATIVE_TAB, false, 0);
+                    BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)), false, 0);
     public static final RegistryObject<Block> WILD_CORN = registerBlock("wild_corn",
             () -> new WildCropBlock(MobEffects.HUNGER, 6,
-                    BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)), FarmersDelight.CREATIVE_TAB, false, 0);
+                    BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)), false, 0);
     public static final RegistryObject<Block> WILD_EGGPLANTS = registerBlock("wild_eggplants",
             () -> new WildCropBlock(MobEffects.DAMAGE_BOOST, 6,
-                    BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)), FarmersDelight.CREATIVE_TAB, false, 0);
+                    BlockBehaviour.Properties.copy(Blocks.TALL_GRASS)), false, 0);
 
     public static final RegistryObject<Block> AVOCADO_PIT = registerBlock("avocado_pit",
-            () -> new AvocadoPitBlock(new AvocadoPitGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), FarmersDelight.CREATIVE_TAB, false, 0);
+            () -> new AvocadoPitBlock(new AvocadoPitGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), false, 0);
     public static final RegistryObject<Block> AVOCADO_SAPLING = registerBlock("avocado_sapling",
-            () -> new SaplingBlock(new AvocadoTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), FarmersDelight.CREATIVE_TAB, true, 100);
+            () -> new SaplingBlock(new AvocadoTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)), true, 100);
     public static final RegistryObject<Block> AVOCADO_LOG = registerBlock("avocado_log",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_LOG)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
@@ -59,7 +57,7 @@ public class ModBlocks {
                             return Blocks.STRIPPED_JUNGLE_LOG.defaultBlockState().setValue(AXIS, state.getValue(AXIS));}}
                     return super.getToolModifiedState(state, context, toolAction, simulate);}
 
-            }, FarmersDelight.CREATIVE_TAB, true, 300);
+            }, true, 300);
 
     public static final RegistryObject<Block> AVOCADO_WOOD = registerBlock("avocado_wood",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_WOOD)) {
@@ -72,21 +70,21 @@ public class ModBlocks {
                         return Blocks.STRIPPED_JUNGLE_WOOD.defaultBlockState().setValue(AXIS, state.getValue(AXIS));}}
                     return super.getToolModifiedState(state, context, toolAction, simulate);}
 
-                }, FarmersDelight.CREATIVE_TAB, true, 300);
+                }, true, 300);
 
     public static final RegistryObject<Block> AVOCADO_LEAVES = registerBlock("avocado_leaves",
             () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_LEAVES)) {
                         @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                         @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
                         @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
-                        }, FarmersDelight.CREATIVE_TAB, false, 0);
+                        }, false, 0);
 
     public static final RegistryObject<Block> FRUITING_AVOCADO_LEAVES = registerBlock("fruiting_avocado_leaves",
             () -> new FruitingLeaves(BlockBehaviour.Properties.copy(Blocks.JUNGLE_LEAVES)) {
                 @Override public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return true; }
                 @Override public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 60; }
                 @Override public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) { return 30; }
-            }, FarmersDelight.CREATIVE_TAB, false, 0);
+            }, false, 0);
 
 
     public static final RegistryObject<Block> CUCUMBERS = registerBlockWithoutBlockItem("cucumbers",
@@ -104,36 +102,36 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> AVOCADO_CRATE = registerBlock("avocado_crate",
             () -> new Block(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.CARROT_CRATE.get()))
-            , FarmersDelight.CREATIVE_TAB, false, 0);
+            , false, 0);
 
     public static final RegistryObject<Block> CUCUMBER_CRATE = registerBlock("cucumber_crate",
             () -> new Block(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.CARROT_CRATE.get()))
-            , FarmersDelight.CREATIVE_TAB, false, 0);
+            , false, 0);
 
     public static final RegistryObject<Block> PICKLE_CRATE = registerBlock("pickle_crate",
             () -> new Block(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.CARROT_CRATE.get()))
-            , FarmersDelight.CREATIVE_TAB, false, 0);
+            , false, 0);
 
     public static final RegistryObject<Block> CORN_COB_CRATE = registerBlock("corn_cob_crate",
             () -> new Block(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.CARROT_CRATE.get()))
-            , FarmersDelight.CREATIVE_TAB, false, 0);
+            , false, 0);
 
     public static final RegistryObject<Block> EGGPLANT_CRATE = registerBlock("eggplant_crate",
             () -> new Block(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.CARROT_CRATE.get()))
-            , FarmersDelight.CREATIVE_TAB, false, 0);
+            , false, 0);
 
     public static final RegistryObject<Block> WHITE_EGGPLANT_CRATE = registerBlock("white_eggplant_crate",
             () -> new Block(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.CARROT_CRATE.get()))
-            , FarmersDelight.CREATIVE_TAB, false, 0);
+            , false, 0);
 
 
     public static final RegistryObject<Block> EXOTIC_ROLL_MEDLEY = registerBlock("exotic_roll_medley",
-            () -> new ExoticRollMedleyBlock(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_ROLL_MEDLEY_BLOCK.get()).noOcclusion()), FarmersDelight.CREATIVE_TAB, false, 0);
+            () -> new ExoticRollMedleyBlock(BlockBehaviour.Properties.copy(vectorwing.farmersdelight.common.registry.ModBlocks.RICE_ROLL_MEDLEY_BLOCK.get()).noOcclusion()), false, 0);
 
 
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab, Boolean isFuel, Integer fuelAmount) {
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, Boolean isFuel, Integer fuelAmount) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn, tab, isFuel, fuelAmount);
+        registerBlockItem(name, toReturn, isFuel, fuelAmount);
         return toReturn;
     }
 
@@ -141,13 +139,13 @@ public class ModBlocks {
         return BLOCKS.register(name, block);
     }
 
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, CreativeModeTab tab, Boolean isFuel, Integer fuelAmount) {
+    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, Boolean isFuel, Integer fuelAmount) {
         if(isFuel == false) {
             return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                    new Item.Properties().tab(tab)));
+                    new Item.Properties()));
         } else {
             return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                    new Item.Properties().tab(tab)){
+                    new Item.Properties()){
                 @Override public int getBurnTime(ItemStack itemStack, @Nullable RecipeType<?> recipeType) {return fuelAmount;}});
         }
     }
